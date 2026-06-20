@@ -1,0 +1,35 @@
+name: Validate Plugin Manifest
+
+on:
+  pull_request:
+    paths:
+      - '.github/plugin.json'
+      - '.github/agents/**'
+      - '.github/skills/**'
+      - '.github/scripts/validate-plugin-paths.py'
+      - '.github/workflows/validate-plugin.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/plugin.json'
+      - '.github/agents/**'
+      - '.github/skills/**'
+      - '.github/scripts/validate-plugin-paths.py'
+      - '.github/workflows/validate-plugin.yml'
+
+jobs:
+  validate-plugin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate plugin manifest paths
+        run: python3 .github/scripts/validate-plugin-paths.py
