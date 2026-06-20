@@ -37,7 +37,12 @@ def main() -> int:
     for rel in data.get("agents", []):
         path = manifest.parent / rel
         if not path.exists():
-            failures.append(f"Missing agent file: {rel}")
+            failures.append(f"Missing public agent file: {rel}")
+
+    for rel in data.get("internalAgents", []):
+        path = manifest.parent / rel
+        if not path.exists():
+            failures.append(f"Missing internal agent file: {rel}")
 
     for rel in data.get("skills", []):
         skill_dir = manifest.parent / rel
@@ -54,8 +59,9 @@ def main() -> int:
         return 1
 
     agent_count = len(data.get("agents", []))
+    internal_agent_count = len(data.get("internalAgents", []))
     skill_count = len(data.get("skills", []))
-    print(f"Plugin validation passed: {agent_count} agents, {skill_count} skills, marketplace metadata OK")
+    print(f"Plugin validation passed: {agent_count} public agent(s), {internal_agent_count} internal agent(s), {skill_count} skills, marketplace metadata OK")
     return 0
 
 

@@ -20,7 +20,9 @@
     "capacity planning"
   ],
   "agents": [
-    "./agents/sre-engineer.agent.md",
+    "./agents/sre-engineer.agent.md"
+  ],
+  "internalAgents": [
     "./agents/alert-triage.agent.md",
     "./agents/rca-investigator.agent.md",
     "./agents/incident-commander.agent.md",

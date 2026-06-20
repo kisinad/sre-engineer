@@ -48,22 +48,33 @@ Marketplace listing metadata is defined in `.github/plugin/marketplace.json`. Th
      ```bash
      python3 .github/scripts/validate-plugin-paths.py
      ```
-   - Output should show: `Plugin validation passed: 5 agents, 11 skills`
+   - Output should show: `Plugin validation passed: 1 public agent(s), 4 internal agent(s), 11 skills, marketplace metadata OK`
 
 ## Usage
 
-### Using Agents
+### Invoke the SRE Engineer
 
-Invoke agents in Copilot Chat with trigger phrases:
-- **sre-engineer**: General SRE workflows — "Orchestrate response to this incident"
-- **alert-triage**: Alert filtering — "Triage these alerts by severity"
-- **rca-investigator**: Root cause analysis — "Investigate the root cause from this timeline"
-- **incident-commander**: Mitigation steps — "Create a mitigation plan"
-- **reliability-advisor**: Reliability decisions — "Assess our SLO status"
+You interact with the plugin through a single agent: **sre-engineer**. Describe your incident, reliability question, or task, and the agent will automatically route to the right internal specialists.
 
-### Using Skills
+#### Example Prompts
 
-Skills trigger automatically based on prompt keywords. Examples:
+- "I have an alert storm on the checkout service. Help me triage and respond."
+- "My API latency spiked 30 seconds ago. Let's investigate the root cause."
+- "We burned 60% of our SLO budget in 3 days. What should we do?"
+- "Help me mitigate this database connection pool exhaustion."
+- "Generate a postmortem from this incident timeline."
+
+#### Capabilities (Automatically Delegated)
+
+The agent internally coordinates:
+- **Alert Triage**: "CPU is at 95% on checkout-api. What should I check?"
+- **RCA**: "Correlate logs, metrics, and traces for this incident."
+- **Mitigation**: "Create a mitigation plan and recovery checklist."
+- **Reliability**: "Assess our SLO status and recommend priorities."
+
+### Available Skills
+
+Skills are automatically triggered by relevant keywords in your prompts:
 
 - **monitoring**: "CPU is at 95% on checkout-api. What should I check?"
 - **alerting**: "We had 120 pages overnight with no impact. How do we reduce noise?"
@@ -79,11 +90,16 @@ Skills trigger automatically based on prompt keywords. Examples:
 
 ## Agents
 
-- `sre-engineer`: End-to-end orchestration
-- `alert-triage`: Signal filtering, deduplication, and escalation advice
-- `rca-investigator`: Timeline and root cause investigation
-- `incident-commander`: Mitigation and communication coordination
-- `reliability-advisor`: SLO and reliability improvement guidance
+### Public Agent (User Interface)
+
+- `sre-engineer`: Main orchestrator that guides you through SRE workflows and internally delegates to specialists.
+
+### Internal Agents (Orchestrated by sre-engineer)
+
+- `alert-triage`: Classifies alerts and routes escalations
+- `rca-investigator`: Performs root cause analysis with evidence correlation
+- `incident-commander`: Coordinates mitigation and recovery
+- `reliability-advisor`: Guides SLO and reliability decisions
 
 ## Skills
 

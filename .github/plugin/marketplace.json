@@ -47,7 +47,9 @@
   },
   "capabilities": {
     "agents": [
-      "sre-engineer",
+      "sre-engineer"
+    ],
+    "internalAgents": [
       "alert-triage",
       "rca-investigator",
       "incident-commander",
