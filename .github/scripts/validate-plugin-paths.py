@@ -11,6 +11,7 @@ from pathlib import Path
 def main() -> int:
     repo_root = Path(__file__).resolve().parents[2]
     manifest = repo_root / ".github" / "plugin.json"
+    marketplace = repo_root / ".github" / "plugin" / "marketplace.json"
 
     if not manifest.exists():
         print(f"ERROR: Manifest not found at {manifest}")
@@ -23,6 +24,15 @@ def main() -> int:
         return 1
 
     failures: list[str] = []
+
+    # Check marketplace.json exists and is valid
+    if not marketplace.exists():
+        failures.append(f"Missing marketplace metadata: {marketplace.relative_to(repo_root)}")
+    else:
+        try:
+            json.loads(marketplace.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            failures.append(f"Invalid JSON in {marketplace.relative_to(repo_root)}: {exc}")
 
     for rel in data.get("agents", []):
         path = manifest.parent / rel
@@ -45,7 +55,7 @@ def main() -> int:
 
     agent_count = len(data.get("agents", []))
     skill_count = len(data.get("skills", []))
-    print(f"Plugin validation passed: {agent_count} agents, {skill_count} skills")
+    print(f"Plugin validation passed: {agent_count} agents, {skill_count} skills, marketplace metadata OK")
     return 0
 
 

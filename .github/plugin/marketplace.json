@@ -1,0 +1,130 @@
+{
+  "name": "sre-engineer-assistant",
+  "displayName": "SRE Engineer Assistant",
+  "description": "SRE Engineer Assistant is a plugin designed to assist Site Reliability Engineers (SREs) in managing and optimizing their systems. It provides tools for investigating alerts, performing root cause analysis, and resolving incidents, helping SREs maintain the reliability and performance of their applications.",
+  "version": "1.0.0",
+  "publisher": "deniskisina",
+  "author": {
+    "name": "Denis Kisina",
+    "email": "denis.kisina@gmail.com",
+    "url": "https://github.com/deniskisina"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1e293b",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deniskisina/sre-engineer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deniskisina/sre-engineer/issues"
+  },
+  "homepage": "https://github.com/deniskisina/sre-engineer",
+  "keywords": [
+    "sre",
+    "site reliability engineering",
+    "monitoring",
+    "alerting",
+    "incident management",
+    "root cause analysis",
+    "rca",
+    "slo",
+    "error budget",
+    "postmortem",
+    "capacity planning",
+    "observability",
+    "runbooks"
+  ],
+  "categories": [
+    "Debuggers",
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "capabilities": {
+    "agents": [
+      "sre-engineer",
+      "alert-triage",
+      "rca-investigator",
+      "incident-commander",
+      "reliability-advisor"
+    ],
+    "skills": [
+      "monitoring",
+      "alerting",
+      "incident-management",
+      "slo-error-budget",
+      "observability-correlation",
+      "runbooks",
+      "postmortems",
+      "capacity-planning",
+      "change-risk",
+      "incident-comms",
+      "dependency-mapping"
+    ]
+  },
+  "activationEvents": [
+    "onCommand:copilot.openSymbolFromEditor"
+  ],
+  "features": [
+    {
+      "name": "Alert Triage",
+      "description": "Classify alerts, deduplicate noise, and route escalations automatically."
+    },
+    {
+      "name": "Root Cause Analysis",
+      "description": "Correlate metrics, logs, traces, and events to identify root causes."
+    },
+    {
+      "name": "Incident Management",
+      "description": "Coordinate mitigation, recovery, and stakeholder communications during incidents."
+    },
+    {
+      "name": "SLO & Error Budget",
+      "description": "Monitor reliability targets and make policy-driven reliability decisions."
+    },
+    {
+      "name": "Observability Correlation",
+      "description": "Unify signals from multiple observability sources for faster diagnosis."
+    },
+    {
+      "name": "Runbooks",
+      "description": "Execute operational runbooks with preconditions and safety checks."
+    },
+    {
+      "name": "Postmortems",
+      "description": "Generate blameless postmortems and corrective action plans."
+    },
+    {
+      "name": "Capacity Planning",
+      "description": "Forecast utilization and identify scaling bottlenecks."
+    },
+    {
+      "name": "Change Risk Analysis",
+      "description": "Evaluate deployment and configuration change risks before rollout."
+    },
+    {
+      "name": "Incident Communications",
+      "description": "Draft internal and external incident status updates."
+    },
+    {
+      "name": "Dependency Mapping",
+      "description": "Identify blast radius and service dependencies."
+    }
+  ],
+  "pricing": "free",
+  "qna": "https://github.com/deniskisina/sre-engineer/discussions",
+  "badges": [
+    {
+      "url": "https://img.shields.io/github/license/deniskisina/sre-engineer",
+      "href": "https://github.com/deniskisina/sre-engineer/blob/main/LICENSE",
+      "description": "License: MIT"
+    }
+  ],
+  "requiresAI": true,
+  "minorVersion": 0
+}
