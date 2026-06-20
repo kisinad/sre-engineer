@@ -1,0 +1,44 @@
+{
+  "name": "sre-engineer-assistant",
+  "description": "SRE Engineer Assistant is a plugin designed to assist Site Reliability Engineers (SREs) in managing and optimizing their systems. It provides tools for investigating alerts, performing root cause analysis, and resolving incidents, helping SREs maintain the reliability and performance of their applications.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Denis Kisina",
+    "email": "denis.kisina@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "sre",
+    "site reliability engineering",
+    "monitoring",
+    "alerting",
+    "incident management",
+    "root cause analysis",
+    "slo",
+    "error budget",
+    "postmortem",
+    "capacity planning"
+  ],
+  "agents": [
+    "../agents/sre-engineer.agent.md"
+  ],
+  "internalAgents": [
+    "../agents/alert-triage.agent.md",
+    "../agents/rca-investigator.agent.md",
+    "../agents/incident-commander.agent.md",
+    "../agents/reliability-advisor.agent.md"
+  ],
+  "skills": [
+    "../skills/monitoring/",
+    "../skills/alerting/",
+    "../skills/incident-management/",
+    "../skills/slo-error-budget/",
+    "../skills/observability-correlation/",
+    "../skills/runbooks/",
+    "../skills/postmortems/",
+    "../skills/capacity-planning/",
+    "../skills/change-risk/",
+    "../skills/incident-comms/",
+    "../skills/dependency-mapping/"
+  ]
+}

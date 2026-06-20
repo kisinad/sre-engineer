@@ -10,7 +10,13 @@ It is designed to help with:
 
 ## Plugin Manifest
 
-The plugin manifest is defined in `.github/plugin.json`.
+The canonical plugin manifest is defined in `.github/plugin.json`.
+
+Installer-compatible manifests are also available at:
+- `plugin.json` (repository root)
+- `.github/plugin/plugin.json`
+
+These compatibility paths allow `copilot plugin install https://github.com/<owner>/<repo>` to discover the plugin manifest automatically.
 
 ### Marketplace Metadata
 
@@ -37,13 +43,18 @@ Marketplace listing metadata is defined in `.github/plugin/marketplace.json`. Th
    git clone https://github.com/deniskisina/sre-engineer.git
    ```
 
-2. **Load the plugin in VS Code**
+2. **Install using Copilot CLI (recommended)**
+   ```bash
+   copilot plugin install https://github.com/deniskisina/sre-engineer
+   ```
+
+3. **Load the plugin manually in VS Code (alternative)**
    - Open VS Code
    - Open the Command Palette (`Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Linux/Windows)
    - Search for `GitHub Copilot: Load Plugin`
    - Select the cloned `sre-engineer` directory (specifically the `.github` folder containing `plugin.json`)
 
-3. **Verify installation**
+4. **Verify installation**
    - Run the validation script:
      ```bash
      python3 .github/scripts/validate-plugin-paths.py
