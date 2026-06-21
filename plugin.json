@@ -28,6 +28,12 @@
     "./.github/agents/incident-commander.agent.md",
     "./.github/agents/reliability-advisor.agent.md"
   ],
+  "hooks": {
+    "onAgentCall": {
+      "type": "command",
+      "command": "./.github/hooks/log-agent-call.sh"
+    }
+  },
   "skills": [
     "./.github/skills/monitoring/",
     "./.github/skills/alerting/",

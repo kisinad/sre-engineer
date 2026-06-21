@@ -1,0 +1,3 @@
+[2026-06-21T18:26:30Z] hook=onAgentCall
+payload={"agent":"sre-engineer","source":"manual-test"}
+
